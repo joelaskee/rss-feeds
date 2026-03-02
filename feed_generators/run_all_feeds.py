@@ -15,8 +15,12 @@ def run_all_feeds():
     """Run all Python scripts in the feed_generators directory (excluding meta feeds)."""
     feed_generators_dir = os.path.dirname(os.path.abspath(__file__))
 
-    # Exclude meta feed from main loop - it will run at the end
-    excluded_scripts = {os.path.basename(__file__), "ai_research_meta_feed.py"}
+    # Exclude meta and hackernews feed from main loop - it will run at the end
+    excluded_scripts = {
+    os.path.basename(__file__),
+    "ai_research_meta_feed.py",
+    "hackernews_rss.py",
+}
 
     script_paths: list[str] = [
         os.path.join(feed_generators_dir, filename)
